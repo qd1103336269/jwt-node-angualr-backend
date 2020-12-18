@@ -25,11 +25,14 @@ export class LoginRouter implements IRouter {
         response.json({
           token: token,
           msg: '登录成功',
-          code: 201
+          code: 200
         })    
       }else {
-        response.json({
-          code: 401,
+        // response.json({
+        //   code: 401,
+        //   msg: '用户名或者密码错误'
+        // })
+        response.status(401).send({
           msg: '用户名或者密码错误'
         })
       }

@@ -9,14 +9,12 @@ export class GetPicturesRouter implements IRouter {
       let token = data.authorization.split(' ')[1]
       jwt.verify(token, 'testdemo123456', (err: any) => {
         if(err) {
-        response.json({
-          statusCode: 401,
+        response.status(401).send({
           msg: 'token验证失败'
-
         })
       }else {
         response.send({
-          statusCode: 201,
+          code:200,
           msg: '请求成功',
           data:['分站1', '分站1', '分站1', '分站1']
 
